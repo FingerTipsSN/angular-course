@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../heroes-api.service';
 
 @Component({
   selector: 'app-powers',
-  standalone: true,
-  imports: [],
   templateUrl: './powers.component.html',
-  styleUrl: './powers.component.css'
+  styleUrls: ['./powers.component.css']
 })
-export class PowersComponent {
+export class PowersComponent implements OnInit {
+  powers: any[] = [];
 
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.dataService.getPowers().subscribe(data => {
+      this.powers = data;
+    });
+  }
 }

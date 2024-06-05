@@ -1,1 +1,17 @@
-<p>powers works!</p>
+<h1>Powers</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let power of powers">
+      <td>{{ power.id }}</td>
+      <td>{{ power.name }}</td>
+      <td>{{ power.description }}</td>
+    </tr>
+  </tbody>
+</table>
